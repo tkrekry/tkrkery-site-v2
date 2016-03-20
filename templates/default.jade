@@ -1,0 +1,67 @@
+doctype html
+html(lang=language, dir="ltr" prefix="og: http://ogp.me/ns#")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="alternate", href=site.baseUrl + counterPart, hreflang=counterLang)
+    link(rel="alternate", type="application/rss+xml", href="/feed/rss.xml", title="Tkrekry - Lääkärien ja hammaslääkärien työpaikkailmoitukset")
+    link(rel="author", href="humans.txt")
+    title= "Tkrekry - " +title
+    meta(name="description", content=description)
+    meta(name="keywords", content=keywords)
+
+    //- OG tags: http://ogp.me/
+    meta(property="og:description" content=description)
+    meta(property="og:title" content=title)
+    meta(property="og:url" content=site.baseUrl + slug)
+    meta(property="og:locale" content=language_with_country)
+    meta(property="og:image" content=site.baseUrl + 'images/tkrekry-banner-02.jpg')
+
+    <![if !(lte IE 8)]>
+    link(href="/styles/style.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/styles/print.css", rel="stylesheet", media="print", type="text/css")
+    link(href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css", rel="stylesheet", media="screen")
+    <![endif]>
+
+    //- Some IE9 style fixes.
+    <!--[if IE 9]>
+    link(href="/styles/ie.css", rel="stylesheet", media="screen")
+    <![endif]-->
+
+    //- Google Analytics
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-6571240-1', 'tkrekry.fi');
+      ga('require', 'linkid', 'linkid.js');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+
+  body
+    <!--[if lte IE 8]>
+    p(style="color: #ff0000;") Microsoft on lopettanut Internet Explorer 8 tuen. Suosittelemme sinua käyttämään uusia Internet Explorer 11, Edge, Chrome, Safari tai Firefox selaimia käytettävyys- ja tietoturvasyistä.
+    <![endif]-->
+    div#page
+      header(role="banner")
+        block logo
+        block utility-nav
+        block navigation
+      article(role="main", class=pageClass)
+        != contents
+
+      // Last updated at
+      <!-- #{new Date()} -->
+
+      block footer
+
+    // Scripts
+    <![if !(lte IE 8)]>
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/bacon.js/0.7.83/Bacon.min.js")
+    script(src="//s7.addthis.com/js/300/addthis_widget.js#async=1", defer="false", async="false")
+    script(src="/scripts/script.js")
+    <![endif]>

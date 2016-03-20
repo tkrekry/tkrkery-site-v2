@@ -1,0 +1,57 @@
+---
+keywords: "lääkäri, hammaslääkäri, avoin työpaikka, avoimet työpaikat, työpaikkailmoitus, terveyskeskus, yleislääketieteen erityis- ja erikoistumiskoulutus, työsuhde-edut, palkka, työjärjestelyt"
+language: "fi"
+counterLang: "sv"
+---
+
+h1= item.name
+
+h2 Yhteyshenkilöt
+
+p Ota yhteyttä seuraaviin henkilöihin rekrytointiin, erityis- ja erikoistumiskoulutukseen ja amanuenssuureihin sekä tutkimukseen ja kehitykseen liittyvissä asioissa.
+
+div.listing.no-links
+  ul
+    for contact in item.contacts
+      li(itemscope, itemtype="http://data-vocabulary.org/Person")
+        h3
+          span(itemprop="title role")= contact.title + " "
+          span(itemprop="name")= contact.first_name + " " + contact.last_name
+        ul
+          li Puhelin:
+            a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
+          li Sähköposti:
+            a(href= "mailto:" + contact.email, itemprop="email")= contact.email
+
+if item.training_presentation
+
+  h2 Erityis- ja erikoistumiskoulutus
+
+  != item.training_presentation
+
+if item.general_presentation
+
+  h2 Terveyskeskus yleisesti
+
+  != item.general_presentation
+
+if item.general_presentation_link
+
+  p Lue lisää osoitteesta:
+    a(href=general_presentation_link)= general_presentation_link
+
+h2 Toimipisteet
+
+div.listing.no-links
+  ul
+    for office in item.offices
+      li(itemscope, itemtype="http://data-vocabulary.org/Organization")
+        h3(itemprop="name")= office.name
+        ul
+          li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Osoite:
+            a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
+              span(itemprop="streetAddress")= office.street + ", "
+              span(itemprop="postalCode")= office.postal_code + " "
+              span(itemprop="addressLocality")= office.locality
+          li Www-sivut:
+            a(href= office.web_address, itemprop="url")= " " + office.web_address

@@ -1,0 +1,56 @@
+---
+language: "sv"
+counterLang: "fi"
+---
+
+h1= item.name
+
+h2 Kontaktpersoner
+
+p Kontakta följande personer om du har frågor om rekrytering, särskild allmänläkarutbildning och specialiseringsutbildning och amanuenstjänstgöring samt forskning och utbildning.
+
+div.listing.no-links
+  ul
+    for contact in item.contacts
+      li(itemscope, itemtype="http://data-vocabulary.org/Person")
+        h3
+          span(itemprop="title role")= contact.title + " "
+          span(itemprop="name")= contact.first_name + " " + contact.last_name
+        ul
+          li Telefonnummer:
+            a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
+          li E-post:
+            a(href= "mailto:" + contact.email, itemprop="email")= contact.email
+
+if item.training_presentation
+
+  h2 Särskild allmänläkarutbildning och specialiseringsutbildning
+
+  != item.training_presentation
+
+if item.general_presentation
+
+  h2 Allmänt om hälsovårdscentralen
+
+  != item.general_presentation
+
+if item.general_presentation_link
+
+  p Mera information finns på:
+    a(href=item.general_presentation_link)= item.general_presentation_link
+
+h2 Verksamhetsställen
+
+div.listing.no-links
+  ul
+    for office in item.offices
+      li(itemscope, itemtype="http://data-vocabulary.org/Organization")
+        h3(itemprop="name")= office.name
+        ul
+          li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Adress:
+            a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
+              span(itemprop="streetAddress")= office.street + ", "
+              span(itemprop="postalCode")= office.postal_code + " "
+              span(itemprop="addressLocality")= office.locality
+          li Webbplats:
+            a(href= office.web_address, itemprop="url")= " " + office.web_address

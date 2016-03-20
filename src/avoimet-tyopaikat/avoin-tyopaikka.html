@@ -1,0 +1,61 @@
+---
+language: "fi"
+counterLang: "sv"
+default: "fi.jade"
+---
+
+h1= item.title
+  span #{item.employer.name}, #{item.office.locality}
+
+!= item.description
+
+div.listing.no-links
+  ul
+    if item.office
+      li
+        h3 Www-osoite:
+        p
+          a(href=item.office.web_address)=item.office.web_address
+    li
+      h3 Yhteystiedot:
+      ul.jobadcontacts
+        for contact in item.contacts
+          li(itemscope, itemtype="http://data-vocabulary.org/Person")
+            span(itemprop="title role")= contact.title + " "
+            span(itemprop="name")= contact.first_name + " " + contact.last_name + " "
+            a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
+            a(href= "mailto:" + contact.email, itemprop="email")= contact.email
+
+    if item.office
+      li
+        h3 Työpaikan osoite:
+        p
+          a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + item.office.street + "+" + item.office.postal_code + "+" + item.office.locality)
+            span(itemprop="streetAddress")= item.office.street + ", "
+            span(itemprop="postalCode")= item.office.postal_code + " "
+            span(itemprop="addressLocality")= item.office.locality
+    li
+      h3 Työn tyyppi:
+      p= item.job_type.name.fi
+    li
+      h3 Työn kesto:
+      p= item.job_duration.name.fi
+    li
+      h3 Työaika:
+      p= item.working_hours
+    li
+      h3 Työ alkaa:
+      p= item.work_begins
+    li
+      h3 Haku päättyy:
+      p= moment_fi(item.application_period_end).format('DD.MM.YYYY - HH:mm')
+    li
+      h3 Jätä hakemus:
+      p= item.application_submission
+    li
+      h3 Ilmoitus jätetty:
+      p= moment_fi(item.published_at).format('DD.MM.YYYY')
+
+p Katso myös 
+  a(href="/terveyskeskukset/#{slugify(item.employer.name+'-'+item.employer._id).toLowerCase()}.html")
+    = item.employer.name + " esittely ›"
