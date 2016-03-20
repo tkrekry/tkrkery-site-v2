@@ -1,4 +1,7 @@
 # TKrekry public website
+
+[![dependencies](https://david-dm.org/tkrekry/tkrkery-site-v2.png)](https://david-dm.org/tkrekry/tkrkery-site-v2)
+
 See http://tkrekry.wordpress.com/2014/11/20/tkrekryn-kehityksesta-ja-tekniikasta/ for more info (in Finnish).
 
 ## Contributing
