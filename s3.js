@@ -4,10 +4,9 @@ require("events").EventEmitter.prototype._maxListeners = 9999999999
 var path = require("path")
 var readdirp = require("readdirp")
 var s3sync = require("s3-sync")
+var db = require("level")(".cache")
 
 module.exports = function(done) {
-  var db = require("level")(".cache" + new Date())
-    // To be updated with your own configuration
   var syncer = s3sync(db, {
     key: process.env.AWS_ACCESS_KEY,
     secret: process.env.AWS_SECRET_KEY,
@@ -35,7 +34,6 @@ module.exports = function(done) {
     })
     .once("end", function() {
       console.log("uploading new cache")
-
       done()
     })
 }
