@@ -16,10 +16,12 @@ var metalsmith_sitemap = require("metalsmith-sitemap")
 var metalsmith_dynamic_pages = require("./dynamic_pages")
 var slug = require("slug")
 
-var moment_fi = require("moment")
+var moment_fi = require("moment-timezone")
+moment_fi.tz.setDefault("Europe/Helsinki")
 moment_fi.locale("fi")
 
-var moment_sv = require("moment")
+var moment_sv = require("moment-timezone")
+moment_sv.tz.setDefault("Europe/Helsinki")
 moment_fi.locale("sv")
 
 var lodash = require("lodash-addons")
