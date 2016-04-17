@@ -19,12 +19,13 @@ div.listing.no-links
     li
       h3 Yhteystiedot:
       ul.jobadcontacts
-        for contact in item.contacts
-          li(itemscope, itemtype="http://data-vocabulary.org/Person")
-            span(itemprop="title role")= contact.title + " "
-            span(itemprop="name")= contact.first_name + " " + contact.last_name + " "
-            a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
-            a(href= "mailto:" + contact.email, itemprop="email")= contact.email
+        if item.contacts
+          for contact in item.contacts
+            li(itemscope, itemtype="http://data-vocabulary.org/Person")
+              span(itemprop="title role")= contact.title + " "
+              span(itemprop="name")= contact.first_name + " " + contact.last_name + " "
+              a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
+              a(href= "mailto:" + contact.email, itemprop="email")= contact.email
 
     if item.office
       li

@@ -11,16 +11,17 @@ p Kontakta följande personer om du har frågor om rekrytering, särskild allmä
 
 div.listing.no-links
   ul
-    for contact in item.contacts
-      li(itemscope, itemtype="http://data-vocabulary.org/Person")
-        h3
-          span(itemprop="title role")= contact.title + " "
-          span(itemprop="name")= contact.first_name + " " + contact.last_name
-        ul
-          li Telefonnummer:
-            a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
-          li E-post:
-            a(href= "mailto:" + contact.email, itemprop="email")= contact.email
+    if item.contacts
+      for contact in item.contacts
+        li(itemscope, itemtype="http://data-vocabulary.org/Person")
+          h3
+            span(itemprop="title role")= contact.title + " "
+            span(itemprop="name")= contact.first_name + " " + contact.last_name
+          ul
+            li Telefonnummer:
+              a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
+            li E-post:
+              a(href= "mailto:" + contact.email, itemprop="email")= contact.email
 
 if item.training_presentation
 
@@ -43,14 +44,15 @@ h2 Verksamhetsställen
 
 div.listing.no-links
   ul
-    for office in item.offices
-      li(itemscope, itemtype="http://data-vocabulary.org/Organization")
-        h3(itemprop="name")= office.name
-        ul
-          li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Adress:
-            a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
-              span(itemprop="streetAddress")= office.street + ", "
-              span(itemprop="postalCode")= office.postal_code + " "
-              span(itemprop="addressLocality")= office.locality
-          li Webbplats:
-            a(href= office.web_address, itemprop="url")= " " + office.web_address
+    if item.offices
+      for office in item.offices
+        li(itemscope, itemtype="http://data-vocabulary.org/Organization")
+          h3(itemprop="name")= office.name
+          ul
+            li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Adress:
+              a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
+                span(itemprop="streetAddress")= office.street + ", "
+                span(itemprop="postalCode")= office.postal_code + " "
+                span(itemprop="addressLocality")= office.locality
+            li Webbplats:
+              a(href= office.web_address, itemprop="url")= " " + office.web_address

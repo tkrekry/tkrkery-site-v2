@@ -5,7 +5,7 @@ var path = require("path")
 var readdirp = require("readdirp")
 var s3sync = require("s3-sync")
 var level = require("level")
-var db = level(__dirname + "/cache")
+var db = level(path.join(__dirname, "/cache"))
 
 module.exports = function(done) {
   var syncer = s3sync(db, {
