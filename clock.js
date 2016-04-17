@@ -36,7 +36,7 @@ var generateSite = function() {
 
 var CronJob = require("cron").CronJob
 new CronJob({
-  cronTime: "10 */5 * * * *",
+  cronTime: "*/15 * * * *",
   onTick: generateSite,
   start: true
 })
