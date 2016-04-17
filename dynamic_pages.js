@@ -32,7 +32,7 @@ function createPages(files, sourceFileName, filePathFn, counterPartFn, collectio
     page = _.merge(page, {
       changefreq: "daily",
       lastmod: moment().format("YYYY-MM-DD"),
-      priority: "1.0",
+      priority: 1.0,
       filename: filePath,
       counterPart: "/" + counterPart,
       counterLang: counterLang,
