@@ -88,7 +88,7 @@ div.listing
           h3= advertisement.title
           p
             | #{advertisement.employer.name},
-            | #{advertisement.office.locality}.
+            | #{lodash.get(advertisement, 'office.locality')}.
             | #{advertisement.job_profession_group.name.sv}.
             | #{advertisement.job_type.name.sv}. Ansökningstiden går ut:
             | #{moment_sv(advertisement.application_period_end).format('DD.MM.YYYY')}.

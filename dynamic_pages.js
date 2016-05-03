@@ -55,10 +55,10 @@ var healthCenterFilePathFN = function(prefix, hc) {
 var advertisementFilePathFN = function(prefix, advertisement) {
   return ([prefix,
            slug([advertisement.title,
-                 advertisement.office.locality,
-                 advertisement.job_profession_group.id,
-                 advertisement.job_type.id,
-                 advertisement.job_duration.id,
+                 _.get(advertisement, "office.locality"),
+                 _.get(advertisement, "job_profession_group.id"),
+                 _.get(advertisement, "job_type.id"),
+                 _.get(advertisement, "job_duration.id"),
                  advertisement._id].join(' '), slugConfig)].join("/") + ".html").toLowerCase()
 }
 

@@ -5,7 +5,7 @@ default: "sv.jade"
 ---
 
 h1= item.title
-  span #{item.employer.name}, #{item.office.locality}
+  span #{lodash.get(item, 'employer.name')}, #{lodash.get(item, 'office.locality')}
 
 != item.description
 
@@ -31,10 +31,10 @@ div.listing.no-links
       li
         h3 Arbetsplatsens adress:
         p
-          a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + item.office.street + "+" + item.office.postal_code + "+" + item.office.locality)
+          a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + item.office.street + "+" + item.office.postal_code + "+" + lodash.get(item, 'office.locality'))
             span(itemprop="streetAddress")= item.office.street + ", "
             span(itemprop="postalCode")= item.office.postal_code + " "
-            span(itemprop="addressLocality")= item.office.locality
+            span(itemprop="addressLocality")= lodash.get(item, 'office.locality')
     li
       h3 Anställningstyp:
       p= item.job_type.name.sv

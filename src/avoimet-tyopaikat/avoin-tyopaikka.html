@@ -5,7 +5,7 @@ default: "fi.jade"
 ---
 
 h1= item.title
-  span #{item.employer.name}, #{item.office.locality}
+  span #{item.employer.name}, #{lodash.get(item, 'office.locality')}
 
 != item.description
 
@@ -15,7 +15,7 @@ div.listing.no-links
       li
         h3 Www-osoite:
         p
-          a(href=item.office.web_address)=item.office.web_address
+          a(href=lodash.get(item, 'office.web_address'))=lodash.get(item, 'office.web_address')
     li
       h3 Yhteystiedot:
       ul.jobadcontacts
@@ -31,10 +31,10 @@ div.listing.no-links
       li
         h3 Työpaikan osoite:
         p
-          a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + item.office.street + "+" + item.office.postal_code + "+" + item.office.locality)
-            span(itemprop="streetAddress")= item.office.street + ", "
-            span(itemprop="postalCode")= item.office.postal_code + " "
-            span(itemprop="addressLocality")= item.office.locality
+          a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + lodash.get(item, 'office.street') + "+" + lodash.get(item, 'office.postal_code') + "+" + lodash.get(item, 'office.locality'))
+            span(itemprop="streetAddress")= lodash.get(item, 'office.street') + ", "
+            span(itemprop="postalCode")= lodash.get(item, 'office.postal_code') + " "
+            span(itemprop="addressLocality")= lodash.get(item, 'office.locality')
     li
       h3 Työn tyyppi:
       p= item.job_type.name.fi
