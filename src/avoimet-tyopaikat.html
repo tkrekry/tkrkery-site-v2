@@ -29,9 +29,11 @@ form
         select#alue(name="alue")
           option(value="") Kaikki
 
-          for domain in domains
+          - var filterDomains = domains.filter(function (domain) { return domain.id !== "yllapidon-oma-testi-erva"; });
+
+          for domain in filterDomains
             option(value="domain-#{domain.id}")=domain.name
-            - filteredDistricts = districts.filter(function(dist) { return dist.domain_id === domain.id; });
+            - var filteredDistricts = districts.filter(function(dist) { return dist.domain_id === domain.id; });
             optgroup
               for district in filteredDistricts
                 option(value="district-#{district.id}")=district.name
