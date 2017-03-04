@@ -30,6 +30,7 @@ node_modules
 
 out
 build
+cache
 
 # Auto detect text files and perform LF normalization
 * text=auto
@@ -56,3 +57,4 @@ build
 .env
 .project
 .cache
+.vscode/
