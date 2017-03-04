@@ -1,53 +1,57 @@
 {
-  "name": "tkrekry-site",
-  "version": "1.0.0",
-  "description": "Terveyskeskusten rekrytointi ilmoitukset ja yhteystiedot verkossa.",
-  "contributors": [
-    {
-      "name": "Pirkka Rannikko",
-      "email": "mail@pirkkarannikko.com",
-      "url": "http://www.pirkkarannikko.com/"
+    "name": "tkrekry-site",
+    "version": "1.0.0",
+    "description": "Terveyskeskusten rekrytointi ilmoitukset ja yhteystiedot verkossa.",
+    "contributors": [{
+            "name": "Pirkka Rannikko",
+            "email": "mail@pirkkarannikko.com",
+            "url": "http://www.pirkkarannikko.com/"
+        },
+        {
+            "name": "Jaakko Suutarla",
+            "email": "jaakko@suutarla.com"
+        }
+    ],
+    "keywords": [
+        "tkrekry",
+        "static site"
+    ],
+    "license": "MIT",
+    "engines": {
+        "node": "6.10.0",
+        "npm": "3.10.10"
     },
-    {
-      "name": "Jaakko Suutarla",
-      "email": "jaakko@suutarla.com"
+    "dependencies": {
+        "consolidate": "0.14.5",
+        "cron": "1.2.1",
+        "jade": "1.11.0",
+        "jstransformer-pug": "0.2.3",
+        "level": "1.6.0",
+        "lodash": "4.17.4",
+        "lodash-addons": "1.0.0",
+        "metalsmith": "2.3.0",
+        "metalsmith-beautify": "0.1.0",
+        "metalsmith-browser-sync": "1.1.1",
+        "metalsmith-clean-css": "5.0.1",
+        "metalsmith-collections": "0.9.0",
+        "metalsmith-excerpts": "1.1.0",
+        "metalsmith-feed": "0.2.0",
+        "metalsmith-filenames": "1.0.0",
+        "metalsmith-in-place": "1.4.3",
+        "metalsmith-layouts": "1.8.0",
+        "metalsmith-markdown": "0.2.1",
+        "metalsmith-metadata": "0.0.4",
+        "metalsmith-multi-language": "0.2.0",
+        "metalsmith-permalinks": "0.5.0",
+        "metalsmith-register-helpers": "0.2.0",
+        "metalsmith-register-partials": "1.0.2",
+        "metalsmith-request": "2.0.0",
+        "metalsmith-sitemap": "1.2.0",
+        "moment": "2.17.1",
+        "moment-timezone": "0.5.11",
+        "newrelic": "1.37.2",
+        "readdirp": "2.1.0",
+        "s3-sync": "1.0.1",
+        "slug": "0.9.1"
     }
-  ],
-  "keywords": [
-    "tkrekry",
-    "static site"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "consolidate": "0.14.0",
-    "cron": "1.1.0",
-    "jade": "1.11.0",
-    "level": "1.4.0",
-    "lodash": "4.11.1",
-    "lodash-addons": "0.3.1",
-    "metalsmith": "2.1.0",
-    "metalsmith-beautify": "0.1.0",
-    "metalsmith-browser-sync": "1.1.1",
-    "metalsmith-clean-css": "4.0.0",
-    "metalsmith-collections": "0.7.0",
-    "metalsmith-excerpts": "1.1.0",
-    "metalsmith-feed": "0.2.0",
-    "metalsmith-filenames": "1.0.0",
-    "metalsmith-in-place": "1.4.3",
-    "metalsmith-layouts": "1.6.4",
-    "metalsmith-markdown": "0.2.1",
-    "metalsmith-metadata": "0.0.4",
-    "metalsmith-multi-language": "0.1.1",
-    "metalsmith-permalinks": "0.5.0",
-    "metalsmith-register-helpers": "0.1.2",
-    "metalsmith-register-partials": "1.0.2",
-    "metalsmith-request": "1.0.0",
-    "metalsmith-sitemap": "1.0.0",
-    "moment": "2.12.0",
-    "moment-timezone": "0.5.3",
-    "newrelic": "1.26.2",
-    "readdirp": "2.0.0",
-    "s3-sync": "1.0.1",
-    "slug": "0.9.1"
-  }
 }
