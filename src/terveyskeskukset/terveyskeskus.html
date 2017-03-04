@@ -20,9 +20,9 @@ div.listing.no-links
             span(itemprop="name")= contact.first_name + " " + contact.last_name
           ul
             li Puhelin:
-              a(href= "tel:" + contact.phone, itemprop="telephone")= contact.phone
+              a(href="tel:" + contact.phone, itemprop="telephone")= contact.phone
             li Sähköposti:
-              a(href= "mailto:" + contact.email, itemprop="email")= contact.email
+              a(href="mailto:" + contact.email, itemprop="email")= contact.email
 
 if item.training_presentation
 
@@ -39,7 +39,7 @@ if item.general_presentation
 if item.general_presentation_link
 
   p Lue lisää osoitteesta:
-    a(href=general_presentation_link)= general_presentation_link
+    a(href=item.general_presentation_link)= item.general_presentation_link
 
 h2 Toimipisteet
 
@@ -51,9 +51,9 @@ div.listing.no-links
           h3(itemprop="name")= office.name
           ul
             li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Osoite:
-              a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
+              a(href="http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
                 span(itemprop="streetAddress")= office.street + ", "
                 span(itemprop="postalCode")= office.postal_code + " "
                 span(itemprop="addressLocality")= office.locality
             li Www-sivut:
-              a(href= office.web_address, itemprop="url")= " " + office.web_address
+              a(href=office.web_address, itemprop="url")= " " + office.web_address
