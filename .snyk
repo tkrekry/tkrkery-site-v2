@@ -36,3 +36,8 @@ patch:
         patched: '2018-04-14T07:41:28.739Z'
     - metalsmith-register-partials > handlebars > uglify-js:
         patched: '2018-04-14T07:41:28.739Z'
+  'npm:uglify-js:20150824':
+    - jade > transformers > uglify-js:
+        patched: '2018-04-14T07:48:51.808Z'
+    - metalsmith-register-partials > handlebars > uglify-js:
+        patched: '2018-04-14T07:48:51.808Z'
