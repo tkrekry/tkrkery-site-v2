@@ -1,32 +1,32 @@
 /* Created by Pirkka Rannikko 2014 (see http://www.pirkkarannikko.com).
- * 
+ *
  * --- Style sheet architecture in these templates ---
  * style.css contains all styles for screen media
  * ie8 contains copy-pasted styles within the media queries of this stylesheet
  * ie.css contains some IE8-9 fixes
  * print.css contains all styles for print media
- * 
+ *
  * --- Contents of this style sheet (mobile first!) ---
  * 1. Resets & common styles
  * 2. Page layout & branding
  * 3. Content area
  * 4. Forms
  * @media only screen and (min-width: 48em)
- * @media only screen and (min-width: 64em) 
+ * @media only screen and (min-width: 64em)
  * Retina images
  *
- */	
+ */
 
 /* --- 1. Resets & common styles --- */
 
 /* Resets */
 * {
-  margin: 0px; 
+  margin: 0px;
   padding: 0px;
 }
 
 html {
-  background: #e4ecee; 
+  background: #e4ecee;
   color: #000;
 }
 
@@ -45,39 +45,39 @@ html {
 body {
   font: 62.5%/1.2 'Open Sans', sans-serif; /* 10px = 1.0em */
   -webkit-text-size-adjust: 100%;
-} 
+}
 
 abbr, acronym, img {
   border: none;
 }
 
 img {
- display: block; 
- height: auto; 
+ display: block;
+ height: auto;
  max-width: 100%;
 }
 
 q:before, q:after {content:'';}
 
 table {
-  border-collapse: collapse; 
-  border-spacing: 0px; 
+  border-collapse: collapse;
+  border-spacing: 0px;
   empty-cells: show;
 }
 
 caption, th, td {
-  text-align: left; 
+  text-align: left;
 	vertical-align: top;
-} 
+}
 
 .accessibility {
-	display: block; 
+	display: block;
 	font-size: 0px; /* font-size: 0px makes the element unfocusable */
-	height: 0px; 
-	line-height: 0px; 
-	overflow: hidden; 
+	height: 0px;
+	line-height: 0px;
+	overflow: hidden;
 	text-indent: -9000px;
-} 
+}
 
 .hidden {display: none; visibility: hidden;}
 
@@ -87,7 +87,7 @@ caption, th, td {
 /* green = #00c467 */
 
 /* Links */
-a:link {color: #02a7df; text-decoration: underline;} 
+a:link {color: #02a7df; text-decoration: underline;}
 a:visited {text-decoration: underline;}
 a:hover, a:focus, a:active {text-decoration: none;}
 header a:link, header a:visited, header a:hover, header a:focus, header a:active,
@@ -97,30 +97,30 @@ footer p:first-child a:link, footer p:first-child a:visited, footer p:first-chil
 
 /* Fonts */
 address, caption, cite, code, dfn, em, strong, th, var {font-style: normal; font-weight: normal;}
-h1 {font-size: 2.8em; font-weight: normal;} 
+h1 {font-size: 2.8em; font-weight: normal;}
 h1 span {color: #00c467; display: block; font-size: 72%;}
-h2 {color: #00c467; font-size: 2.5em; font-weight: normal;} 
-h3 {font-size: 2.3em; font-weight: normal;} 
+h2 {color: #00c467; font-size: 2.5em; font-weight: normal;}
+h3 {font-size: 2.3em; font-weight: normal;}
 h4, h5, h6, legend {font-size: 1.6em; font-weight: bold;}
 .teaser h1, .teaser h2 {font-size: 2.8em;}
 p, th, td, li {font-size: 1.6em;}
 figcaption {font-size: 1.4em;}
 li li, li p {font-size: 1.0em;}
 
-/* --- 2. Page layout & branding --- */	
+/* --- 2. Page layout & branding --- */
 header {
-  background: #01c468 url('/images/header-bg.jpg') 50% 0 no-repeat; 
+  background: #01c468 url('/images/header-bg.jpg') 50% 0 no-repeat;
   padding: 0 4.25531914893617%;
   position: relative;
   z-index: 2;
 }
-.logo h1 {   
+.logo h1 {
   padding: 0.575em 0;
 }
 .logo h1 a {
   background: url('/images/tkrekry-logo.png') 0 0 no-repeat;
   background-size: 200px 52px;
-  color: #fff; 
+  color: #fff;
   display: block;
   height: 52px;
   width: 200px;
@@ -153,13 +153,13 @@ header {
   display: none;
 }
 .utility-nav li a, .utility-nav li strong {
-  border: #fff solid 1px; 
+  border: #fff solid 1px;
   border-radius: 0 3px 3px 0;
   font-weight: bold;
-  display: block; 
+  display: block;
   padding: 0.5em 0.75em;
 }
-.utility-nav li:first-child a, .utility-nav li:first-child strong {  
+.utility-nav li:first-child a, .utility-nav li:first-child strong {
   border-radius: 3px 0 0 3px;
 }
 .utility-nav li a {
@@ -170,21 +170,21 @@ header {
   color: #00c467;
 }
 nav {
-  background: #fff; 
+  background: #fff;
   margin: 0 -4.6%;
 }
 nav ul {
   padding: 0;
 }
 nav li {
-  border-bottom: #d4e0e0 solid 1px; 
-  display: block; 
+  border-bottom: #d4e0e0 solid 1px;
+  display: block;
   list-style-type: none;
   padding: 0;
   position: relative;
 }
 nav a, nav strong {
-  display: block; 
+  display: block;
   padding: 1em 4.25531914893617%;
 }
 nav a:link, nav a:visited, nav a:hover, nav a:focus, nav a:active {
@@ -242,8 +242,8 @@ article {
 }
 
 footer {
-  background: #2a425c; 
-  color: #fff; 
+  background: #2a425c;
+  color: #fff;
   padding: 2em 4.25531914893617%;
 }
 footer p {
@@ -254,7 +254,7 @@ footer a:link, footer a:visited, footer a:hover, footer a:focus, footer a:active
   color: #fff;
 }
 footer p:first-child a {
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/tkrekry-logo-small.png') 0 0 no-repeat;
+  background: url('/images/tkrekry-logo-small.png') 0 0 no-repeat;
   display: inline-block;
   height: 1.75em;
   width: 7em;
@@ -310,7 +310,7 @@ ul {
   padding: 0 0 1.0em 2.0em;
 }
 li {
-  padding: 0 0 1.0em 0;  
+  padding: 0 0 1.0em 0;
 }
 .listing {
   padding: 0 0 3.0em 0;
@@ -335,12 +335,12 @@ li {
 }
 .listing a {
   display: block;
-  padding: 0 2.90697674418605%;  
+  padding: 0 2.90697674418605%;
   position: relative;
 }
 .no-links a {
   display: inline;
-  padding: 0;  
+  padding: 0;
 }
 .listing a:link, .listing a:visited, .listing a:hover, .listing a:focus, .listing a:active {
   text-decoration: none;
@@ -439,13 +439,13 @@ a:hover .teaser, a:focus .teaser {
 }
 #news {
   background-color: #00a554;
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat;
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat, -moz-linear-gradient(left, #00c165 0%, #00a554 50%, #00a554 100%); /* FF3.6+ */
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#00c165), color-stop(50%,#00a554), color-stop(100%,#00a554)); /* Chrome,Safari4+ */
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat, -webkit-linear-gradient(left, #00c165 0%,#00a554 50%,#00a554 100%); /* Chrome10+,Safari5.1+ */
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat, -o-linear-gradient(left, #00c165 0%,#00a554 50%,#00a554 100%); /* Opera 11.10+ */
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat, -ms-linear-gradient(left, #00c165 0%,#00a554 50%,#00a554 100%); /* IE10+ */
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/news-bg.png') 0 0 no-repeat, linear-gradient(to right, #00c165 0%,#00a554 50%,#00a554 100%); /* W3C */
+  background: url('/images/news-bg.png') 0 0 no-repeat;
+  background: url('/images/news-bg.png') 0 0 no-repeat, -moz-linear-gradient(left, #00c165 0%, #00a554 50%, #00a554 100%); /* FF3.6+ */
+  background: url('/images/news-bg.png') 0 0 no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#00c165), color-stop(50%,#00a554), color-stop(100%,#00a554)); /* Chrome,Safari4+ */
+  background: url('/images/news-bg.png') 0 0 no-repeat, -webkit-linear-gradient(left, #00c165 0%,#00a554 50%,#00a554 100%); /* Chrome10+,Safari5.1+ */
+  background: url('/images/news-bg.png') 0 0 no-repeat, -o-linear-gradient(left, #00c165 0%,#00a554 50%,#00a554 100%); /* Opera 11.10+ */
+  background: url('/images/news-bg.png') 0 0 no-repeat, -ms-linear-gradient(left, #00c165 0%,#00a554 50%,#00a554 100%); /* IE10+ */
+  background: url('/images/news-bg.png') 0 0 no-repeat, linear-gradient(to right, #00c165 0%,#00a554 50%,#00a554 100%); /* W3C */
 }
 #news p:last-child {padding-bottom: 0;}
 #news .button + span {
@@ -454,7 +454,7 @@ a:hover .teaser, a:focus .teaser {
   padding: 0.6em;
 }
 #news a:visited {
-  color: #fff;  
+  color: #fff;
 }
 .teaser .button, .feedback .button {
   background: #fff;
@@ -496,7 +496,7 @@ a:hover .teaser, a:focus .teaser {
   color: #02a7df;
 }
 #contact {
-  background: #2a425c;  
+  background: #2a425c;
 }
 #contact .button {
   color: #2a425c;
@@ -521,13 +521,13 @@ input[type="checkbox"] {
   vertical-align: bottom;
 }
 select, input {
-	font-family: 'Open Sans', sans-serif; 
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.0em;
 }
 fieldset {
   border: 0;
-	display: block; 
-	line-height: 1;  
+	display: block;
+	line-height: 1;
   width: 100%;
 }
 legend  {
@@ -614,7 +614,7 @@ fieldset li li input {
   color: #000;
   display: block;
   font-weight: bold;
-  padding: 0.5em 0.75em; 
+  padding: 0.5em 0.75em;
 }
 #subscribe a:link, #subscribe a:visited, #subscribe a:hover, #subscribe a:focus, #subscribe a:active {
   text-decoration: none;
@@ -652,15 +652,15 @@ fieldset li li input {
 {
   h1 {
     font-size: 4.4em;
-  } 
+  }
   h2 {
     font-size: 3.2em;
-  } 
-  
+  }
+
   /* --- 2. Page layout & branding --- */
   header {
     padding: 0 2.12765957446809%;
-  }  
+  }
   /* Display hidden slogan & login */
   .logo {
     position: relative;
@@ -669,14 +669,14 @@ fieldset li li input {
     background-size: 212px 55px;
     height: 55px;
     width: 212px;
-  }    
+  }
   .logo h2 {
     color: #fff;
-    display: block; 
-    font-size: 1.8em; 
-    font-style: italic; 
+    display: block;
+    font-size: 1.8em;
+    font-style: italic;
     left: 13.5em;
-    position: absolute; 
+    position: absolute;
     top: 2.575em;
   }
   .utility-nav ul {
@@ -700,8 +700,8 @@ fieldset li li input {
     margin: 0 -2.2%;
   }
   nav li {
-    border-bottom: 0; 
-    border-right: #d4e0e0 solid 1px; 
+    border-bottom: 0;
+    border-right: #d4e0e0 solid 1px;
     display: inline-block;
     margin-left: -3px; /* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
   }
@@ -724,14 +724,14 @@ fieldset li li input {
     display: block;
     padding: 1em 2.12765957446809% 1em 4.25531914893618%;
   }
-  
+
   article {
-    padding: 2em 2.12765957446809%;    
-  }  
+    padding: 2em 2.12765957446809%;
+  }
 
   footer {
     padding: 2em 2.12765957446809%;
-  }  
+  }
   footer p {
     display: inline-block;
     vertical-align: text-bottom;
@@ -746,11 +746,11 @@ fieldset li li input {
     vertical-align: bottom;
   }
 
-  /* --- 3. Content area --- */  
+  /* --- 3. Content area --- */
   /* Content pages */
   .feedback {
     right: 2.12765957446809%;
-    top: 1.43em;  
+    top: 1.43em;
   }
   .listing {
     clear: both;
@@ -761,8 +761,8 @@ fieldset li li input {
   .listing.no-links li ul {
     padding: 0.6em 0 1.2em 0;
   }
-  .listing.no-links li li 
-  {    
+  .listing.no-links li li
+  {
     display: inline;
     padding-right: 1.6em;
   }
@@ -780,8 +780,8 @@ fieldset li li input {
     float: right;
     margin: 0 0 2em 0;
     text-align: center;
-    width: 50%;  
-  }  
+    width: 50%;
+  }
 
   /* Frontpage */
   .teaser h1, .teaser h2 {
@@ -874,7 +874,7 @@ fieldset li li input {
     margin: 0 0 0 1.7em;
   }
   #subscribe li {
-    border-radius: 0;    
+    border-radius: 0;
     display: inline-block;
     margin-left: -5px;
   }
@@ -915,7 +915,7 @@ fieldset li li input {
   }
 
   article {
-    margin: 2em auto; 
+    margin: 2em auto;
     padding: 5em 4em 2em 4em;
     width: 86em;
   }
@@ -940,7 +940,7 @@ fieldset li li input {
 
   /* --- 3. Content area --- */
   .feedback {
-    right: 2.87em; 
+    right: 2.87em;
   }
 
 }
@@ -954,13 +954,13 @@ fieldset li li input {
   footer p:first-child a {
     background-image: url('/images/tkrekry-logo-small-x2.png');
     background-size: 97px 25px;
-  }   
+  }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 48em), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) {
   .logo h1 a {
 		background-size: 212px 55px;
-	}  
+	}
 }
 
 

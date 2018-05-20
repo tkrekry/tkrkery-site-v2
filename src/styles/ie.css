@@ -4,6 +4,6 @@
 @media only screen and (min-width: 48em) /* 768px / 16px */
 {
   .teaser-wrapper {
-    background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773964/teaser-wrapper-bg.gif') center top repeat-y;  
+    background: url('/images/teaser-wrapper-bg.gif') center top repeat-y;
   }
 }

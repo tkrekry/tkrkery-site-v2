@@ -1,5 +1,5 @@
 .utility-nav, nav, .feedback, .addthis_toolbox {
-  display: none;  
+  display: none;
 }
 
 body {
@@ -24,8 +24,8 @@ a[href^="http://"]:after, a[href^="https://"]:after {
 }
 
 .logo h1 a {
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/tkrekry-logo-black.png') 0 0 no-repeat;
-  color: #fff; 
+  background: url('/images/tkrekry-logo-black.png') 0 0 no-repeat;
+  color: #fff;
   display: block;
   height: 55px;
   width: 212px;
@@ -49,6 +49,6 @@ article h1 {
 }
 
 form ul, .listing ul {
-  list-style-type: none; 
+  list-style-type: none;
   padding-left: 0;
 }
