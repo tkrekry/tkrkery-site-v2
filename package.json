@@ -46,6 +46,7 @@
     "metalsmith-metadata": "0.0.4",
     "metalsmith-multi-language": "0.2.0",
     "metalsmith-permalinks": "0.5.0",
+    "metalsmith-project-images": "^1.1.2",
     "metalsmith-register-helpers": "0.2.0",
     "metalsmith-register-partials": "1.0.2",
     "metalsmith-request": "2.0.0",

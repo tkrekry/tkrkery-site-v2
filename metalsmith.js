@@ -1,5 +1,6 @@
 var path = require("path")
 var Metalsmith = require("metalsmith")
+var metalsmith_images = require("metalsmith-project-images")
 var metalsmith_permalinks = require("metalsmith-permalinks")
 var metalsmith_in_place = require("metalsmith-in-place")
 var metalsmith_layouts = require("metalsmith-layouts")
@@ -27,6 +28,7 @@ moment_fi.locale("sv")
 var lodash = require("lodash-addons")
 
 module.exports = new Metalsmith(__dirname)
+  .use(metalsmith_images({}))
   .use(metalsmith_filenames())
   .use(metalsmith_metadata({
     site: "metadata/site.json"

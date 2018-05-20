@@ -109,7 +109,7 @@ li li, li p {font-size: 1.0em;}
 
 /* --- 2. Page layout & branding --- */	
 header {
-  background: #01c468 url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/header-bg.jpg') 50% 0 no-repeat; 
+  background: #01c468 url('/images/header-bg.jpg') 50% 0 no-repeat; 
   padding: 0 4.25531914893617%;
   position: relative;
   z-index: 2;
@@ -118,7 +118,7 @@ header {
   padding: 0.575em 0;
 }
 .logo h1 a {
-  background: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773966/tkrekry-logo.png') 0 0 no-repeat;
+  background: url('/images/tkrekry-logo.png') 0 0 no-repeat;
   background-size: 200px 52px;
   color: #fff; 
   display: block;
@@ -948,11 +948,11 @@ fieldset li li input {
 /* Retina images */
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   .logo h1 a {
-		background-image: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773965/tkrekry-logo-x2.png');
+		background-image: url('/images/tkrekry-logo-small-x2.png');
 		background-size: 200px 52px;
 	}
   footer p:first-child a {
-    background-image: url('https://res.cloudinary.com/hcmcbhfea/image/upload/v1414773965/tkrekry-logo-small-x2.png');
+    background-image: url('/images/tkrekry-logo-small-x2.png');
     background-size: 97px 25px;
   }   
 }
