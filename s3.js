@@ -3,7 +3,7 @@ require("events").EventEmitter.prototype._maxListeners = 9999999999
 
 var path = require("path")
 var readdirp = require("readdirp")
-var s3sync = require("s3-sync")
+var s3sync = require("s3-sync-aws")
 var level = require("level")
 var db = level(path.join(__dirname, "/cache"))
 
@@ -12,6 +12,7 @@ module.exports = function(done) {
     key: process.env.AWS_ACCESS_KEY,
     secret: process.env.AWS_SECRET_KEY,
     bucket: process.env.AWS_BUCKET,
+    region: 'eu-central-1',
     concurrency: 256,
     retries: 5,
     cacheSrc: path.join(__dirname, "/.s3-sync-cache"),

@@ -53,7 +53,7 @@
     "moment-timezone": "0.5.11",
     "newrelic": "4.0.0",
     "readdirp": "2.1.0",
-    "s3-sync": "1.0.1",
+    "s3-sync-aws": "1.1.1",
     "slug": "0.9.1",
     "snyk": "^1.71.0"
   },
