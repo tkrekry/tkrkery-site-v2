@@ -57,11 +57,12 @@
     "readdirp": "2.1.0",
     "s3-sync-aws": "1.1.1",
     "slug": "0.9.1",
-    "snyk": "^1.71.0"
+    "snyk": "^1.80.1"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "prepare": "npm run snyk-protect"
   },
   "snyk": true
 }
