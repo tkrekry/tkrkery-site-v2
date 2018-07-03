@@ -57,7 +57,7 @@
     "readdirp": "2.1.0",
     "s3-sync-aws": "1.1.1",
     "slug": "0.9.1",
-    "snyk": "^1.80.1"
+    "snyk": "^1.88.0"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
