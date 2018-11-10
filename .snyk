@@ -44,3 +44,6 @@ patch:
   'npm:minimatch:20160620':
     - metalsmith-project-images > minimatch:
         patched: '2018-05-20T15:31:35.517Z'
+  'npm:mime:20170907':
+    - s3-sync-aws > mime:
+        patched: '2018-06-26T03:28:44.101Z'
