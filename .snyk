@@ -44,6 +44,13 @@ patch:
   'npm:minimatch:20160620':
     - metalsmith-project-images > minimatch:
         patched: '2018-05-20T15:31:35.517Z'
+  'npm:lodash:20180130':
+    - metalsmith-project-images > lodash:
+        patched: '2018-07-03T03:29:12.035Z'
+    - metalsmith-browser-sync > lodash:
+        patched: '2018-07-03T03:29:12.035Z'
+    - metalsmith-browser-sync > browser-sync > easy-extender > lodash:
+        patched: '2018-07-03T03:29:12.035Z'
   'npm:mime:20170907':
     - s3-sync-aws > mime:
         patched: '2018-06-26T03:28:44.101Z'
