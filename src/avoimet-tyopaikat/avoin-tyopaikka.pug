@@ -1,7 +1,7 @@
 ---
 language: "fi"
 counterLang: "sv"
-default: "fi.jade"
+default: "fi.pug"
 ---
 
 h1= item.title
@@ -57,6 +57,7 @@ div.listing.no-links
       h3 Ilmoitus jätetty:
       p= moment_fi(item.published_at).format('DD.MM.YYYY')
 
+- var url = "/terveyskeskukset/" + slugify(item.employer.name+'-'+item.employer._id).toLowerCase() + ".html"
 p Katso myös 
-  a(href="/terveyskeskukset/#{slugify(item.employer.name+'-'+item.employer._id).toLowerCase()}.html")
+  a(href=url)
     = item.employer.name + " esittely ›"

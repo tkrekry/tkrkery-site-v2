@@ -11,7 +11,7 @@ var metalsmith_filenames = require("metalsmith-filenames")
 var metalsmith_beautify = require("metalsmith-beautify")
 var metalsmith_clean_css = require("metalsmith-clean-css")
 var metalsmith_collections = require("metalsmith-collections")
-var metalsmith_feed = require("metalsmith-feed")
+var metalsmith_feed = require("./custom_feed")
 var metalsmith_excerpts = require("metalsmith-excerpts")
 var metalsmith_sitemap = require("metalsmith-sitemap")
 var metalsmith_dynamic_pages = require("./dynamic_pages")
@@ -39,25 +39,31 @@ module.exports = new Metalsmith(__dirname)
     advertisements: "https://admin.tkrekry.fi/api/advertisements/published",
     employers: "https://admin.tkrekry.fi/api/employers"
   }, {
-    json: true
-  }))
+      json: true
+    }))
   .use(metalsmith_dynamic_pages.plugin({
     advertisementPath: metalsmith_dynamic_pages.advertisementPath
   }))
+  .use((files, ms, done) => {
+    Object.keys(files).forEach(function(file) {
+        files[file].moment_sv = moment_sv;
+        files[file].moment_fi = moment_fi;
+        files[file].lodash = lodash;
+        files[file].healthCenterPath = metalsmith_dynamic_pages.healthCenterPath;
+        files[file].advertisementPath = metalsmith_dynamic_pages.advertisementPath;
+        files[file].slugify = slug;
+    })
+
+    done();
+  })
   .use(metalsmith_in_place({
-    engine: "jade",
-    pattern: "**/**.html",
-    moment_sv: moment_sv,
-    moment_fi: moment_fi,
-    lodash: lodash,
-    healthCenterPath: metalsmith_dynamic_pages.healthCenterPath,
-    advertisementPath: metalsmith_dynamic_pages.advertisementPath,
-    slugify: slug
+    pattern: "**/**.pug"
   }))
   .use(metalsmith_layouts({
-    engine: "jade",
+    engine: "pug",
     directory: "templates",
-    pattern: ["404.html",
+    pattern: [
+      "404.html",
       "500.html",
       "avoimet-tyopaikat.html",
       "index.html",
@@ -68,27 +74,15 @@ module.exports = new Metalsmith(__dirname)
       "terveyskeskukset/**.html",
       "avoimet-tyopaikat/**.html"
     ],
-    moment_sv: moment_sv,
-    moment_fi: moment_fi,
-    lodash: lodash,
-    healthCenterPath: metalsmith_dynamic_pages.healthCenterPath,
-    advertisementPath: metalsmith_dynamic_pages.advertisementPath,
-    default: "fi.jade",
-    slugify: slug
+    default: "fi.pug"
   }))
   .use(metalsmith_layouts({
-    engine: "jade",
+    engine: "pug",
     directory: "templates",
     pattern: [
       "sv/**/**.html"
     ],
-    moment_sv: moment_sv,
-    moment_fi: moment_fi,
-    lodash: lodash,
-    healthCenterPath: metalsmith_dynamic_pages.healthCenterPath,
-    advertisementPath: metalsmith_dynamic_pages.advertisementPath,
-    default: "sv.jade",
-    slugify: slug
+    default: "sv.pug"
   }))
   .use(metalsmith_beautify({
     js: true,
@@ -120,5 +114,13 @@ module.exports = new Metalsmith(__dirname)
     description: "Lääkärien ja hammaslääkärien avoimet työpaikat terveyskeskuksissa",
     site_url: "https://www.tkrekry.fi",
     destination: "feed/rss.xml",
-    limit: 200
+    limit: 200,
+    preprocess: (file) => {
+      if (file.url) {
+        return { 
+          ...file,
+          title: file.title.replace("Avoimet työpaikat - Työpaikkailmoitus: ", "")
+        };
+      }
+    }
   }))

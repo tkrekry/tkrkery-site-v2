@@ -36,7 +36,8 @@ div(class="teaser listing", id="jobs")
   ul
     for advertisement in advertisements.slice(0,5)
       li
-        a(href="/#{advertisementPath('sv/lediga-jobb', advertisement)}")
+        - var url = "/" + advertisementPath('sv/lediga-jobb', advertisement)
+        a(href=url)
           h3 #{advertisement.title}
           p
             | #{advertisement.employer.name},

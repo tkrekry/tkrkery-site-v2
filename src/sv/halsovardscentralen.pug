@@ -20,6 +20,7 @@ div.listing
   ul#employer-list
     for employer in employers
       li
-        a(href="/#{healthCenterPath('sv/halsovardscentralen', employer)}")
+        - var url = "/" + healthCenterPath('sv/halsovardscentralen', employer)
+        a(href=url)
           h2= employer.name
           i.fa.fa-chevron-right.fa-2x

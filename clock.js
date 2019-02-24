@@ -33,7 +33,6 @@ var generateSite = function() {
   })
 }
 
-
 var CronJob = require("cron").CronJob
 new CronJob({
   cronTime: "10 */15 * * * *",

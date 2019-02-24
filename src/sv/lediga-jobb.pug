@@ -30,11 +30,11 @@ form
           option(value="") Alla
 
           for domain in domains
-            option(value="domain-#{domain.id}")=domain.name
+            option(value=`domain-${domain.id}`)=domain.name
             - filteredDistricts = districts.filter(function(dist) { return dist.domain_id === domain.id; });
             optgroup
               for district in filteredDistricts
-                option(value="district-#{district.id}")=district.name
+                option(value=`district-${district.id}`)=district.name
 
         div
           label(for="koulutusterveyskeskus") Visa endast utbildningshälsovårdscentralernas annonser
@@ -79,8 +79,9 @@ div.listing
   ul
     for advertisement in advertisements
       - var attributes = {'data-area-district': advertisement.employer.district.id, 'data-area-domain': advertisement.employer.domain.id, 'data-job-duration': advertisement.job_duration.id, 'data-job-type': advertisement.job_type.id, 'data-job-profession-group': advertisement.job_profession_group.id, 'data-employer-suitable-for-specialization': advertisement.employer.suitable_for_specialization}
-      li.result(class="area-district-#{advertisement.employer.district.id} area-domain-#{advertisement.employer.domain.id} job-duration-#{advertisement.job_duration.id} job-type-#{advertisement.job_type.id} job-profession-group-#{advertisement.job_profession_group.id} employer-suitable-for-specialization-#{advertisement.employer.suitable_for_specialization}")&attributes(attributes)
-        a(href="/#{advertisementPath('sv/lediga-jobb', advertisement)}")
+      li.result(class=`area-district-${advertisement.employer.district.id} area-domain-${advertisement.employer.domain.id} job-duration-${advertisement.job_duration.id} job-type-${advertisement.job_type.id} job-profession-group-${advertisement.job_profession_group.id} employer-suitable-for-specialization-${advertisement.employer.suitable_for_specialization}`)&attributes(attributes)
+        - var url = "/" + advertisementPath('sv/lediga-jobb', advertisement)
+        a(href=url)
           h3= advertisement.title
           p
             | #{advertisement.employer.name},

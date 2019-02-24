@@ -58,5 +58,5 @@ div.listing.no-links
       p= moment_sv(item.published_at).format('DD.MM.YYYY')
 
 p Se även
-  a(href="/sv/halsovardscentralen/#{slugify(item.employer.name+'-'+item.employer._id).toLowerCase()}.html")
+  a(href=`/sv/halsovardscentralen/${slugify(item.employer.name+'-'+item.employer._id).toLowerCase()}.html`)
     =" " + item.employer.name + " introduktionen ›"

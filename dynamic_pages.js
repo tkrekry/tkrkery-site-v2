@@ -17,7 +17,8 @@ function createPages(files, sourceFileName, filePathFn, counterPartFn, collectio
       page.title = langPrefixed + ": " +
                     [_.get(item, "title"),
                      _.get(item, "name"),
-                     _.get(item, "employer.name"),
+                     "-",
+                     _.get(item, "employer.name") + ",",
                      _.get(item, "office.locality")].join(" ")
     }
 
@@ -25,7 +26,8 @@ function createPages(files, sourceFileName, filePathFn, counterPartFn, collectio
       page.description = langPrefixed + ": " +
                           [_.get(item, "title"),
                            _.get(item, "name"),
-                           _.get(item, "employer.name"),
+                           "-",
+                           _.get(item, "employer.name") + ",",
                            _.get(item, "office.locality")].join(" ")
     }
 
@@ -48,52 +50,51 @@ function createPages(files, sourceFileName, filePathFn, counterPartFn, collectio
   return files
 }
 
-var healthCenterFilePathFN = function(prefix, hc) {
-  return ([prefix, slug([hc.name, hc._id].join("-"), slugConfig)].join("/") + ".html").toLowerCase()
+var healthCenterFilePathFN = (prefix, hc, ext = "html") => {
+  return ([prefix, slug([hc.name, hc._id].join("-"), slugConfig)].join("/") + "." + ext).toLowerCase()
 }
 
-var advertisementFilePathFN = function(prefix, advertisement) {
+var advertisementFilePathFN = (prefix, advertisement, ext = "html") => {
   return ([prefix,
            slug([advertisement.title,
                  _.get(advertisement, "office.locality"),
                  _.get(advertisement, "job_profession_group.id"),
                  _.get(advertisement, "job_type.id"),
                  _.get(advertisement, "job_duration.id"),
-                 advertisement._id].join(' '), slugConfig)].join("/") + ".html").toLowerCase()
+                 advertisement._id].join(' '), slugConfig)].join("/") + "." + ext).toLowerCase()
 }
 
 function plugin(opts){
   return function(files, metalsmith, done){
     var metadata = metalsmith.metadata()
     createPages(files,
-                "avoimet-tyopaikat/avoin-tyopaikka.html",
-                _.partial(advertisementFilePathFN, "avoimet-tyopaikat"),
-                _.partial(advertisementFilePathFN, "sv/lediga-jobb"),
+                "avoimet-tyopaikat/avoin-tyopaikka.pug",
+                (ad) => advertisementFilePathFN("avoimet-tyopaikat", ad, "pug"),
+                (ad) => advertisementFilePathFN("sv/lediga-jobb", ad, "html"),
                 metadata.advertisements,
                 "fi",
                 "Avoimet työpaikat - Työpaikkailmoitus")
 
     createPages(files,
-                "sv/lediga-jobb/lediga-jobb.html",
-                _.partial(advertisementFilePathFN, "sv/lediga-jobb"),
-                _.partial(advertisementFilePathFN, "avoimet-tyopaikat"),
+                "sv/lediga-jobb/lediga-jobb.pug",
+                (ad) => advertisementFilePathFN("sv/lediga-jobb", ad, "pug"),
+                (ad) => advertisementFilePathFN("avoimet-tyopaikat", ad, "html"),
                 metadata.advertisements,
                 "sv",
                 "Lediga jobb - Platsannons")
 
-
     createPages(files,
-                "terveyskeskukset/terveyskeskus.html",
-                _.partial(healthCenterFilePathFN, "terveyskeskukset"),
-                _.partial(healthCenterFilePathFN, "sv/halsovardscentralen"),
+                "terveyskeskukset/terveyskeskus.pug",
+                (hc) => healthCenterFilePathFN("terveyskeskukset", hc, "pug"),
+                (hc) => healthCenterFilePathFN("sv/halsovardscentralen", hc, "html"),
                 metadata.employers,
                 "fi",
                 "Rekrytoinnista vastaavat yhteyshenkilöt, koulutusvalmiudet, esittely ja toimipisteet")
 
     createPages(files,
-                "sv/halsovardscentralen/vardcentral.html",
-                _.partial(healthCenterFilePathFN, "sv/halsovardscentralen"),
-                _.partial(healthCenterFilePathFN, "terveyskeskukset"),
+                "sv/halsovardscentralen/vardcentral.pug",
+                (hc) => healthCenterFilePathFN("sv/halsovardscentralen", hc, "pug"),
+                (hc) => healthCenterFilePathFN("terveyskeskukset", hc, "html"),
                 metadata.employers,
                 "sv",
                 "Kontaktpersoner för rekrytering, utbildningsberedskap, presentation och verksamhetsställen")
