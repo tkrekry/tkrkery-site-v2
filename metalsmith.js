@@ -119,6 +119,7 @@ module.exports = new Metalsmith(__dirname)
       if (file.url) {
         return { 
           ...file,
+          url: file.url.replace(/\.pug/, ".html"),
           title: file.title.replace("Avoimet työpaikat - Työpaikkailmoitus: ", "")
         };
       }
