@@ -4,7 +4,6 @@ var metalsmith_images = require("metalsmith-project-images")
 var metalsmith_permalinks = require("metalsmith-permalinks")
 var metalsmith_in_place = require("metalsmith-in-place")
 var metalsmith_layouts = require("metalsmith-layouts")
-var metalsmith_browser_sync = require("metalsmith-browser-sync")
 var metalsmith_request = require("metalsmith-request")
 var metalsmith_metadata = require("metalsmith-metadata")
 var metalsmith_filenames = require("metalsmith-filenames")
@@ -39,19 +38,19 @@ module.exports = new Metalsmith(__dirname)
     advertisements: "https://admin.tkrekry.fi/api/advertisements/published",
     employers: "https://admin.tkrekry.fi/api/employers"
   }, {
-      json: true
-    }))
+    json: true
+  }))
   .use(metalsmith_dynamic_pages.plugin({
     advertisementPath: metalsmith_dynamic_pages.advertisementPath
   }))
   .use((files, ms, done) => {
     Object.keys(files).forEach(function(file) {
-        files[file].moment_sv = moment_sv;
-        files[file].moment_fi = moment_fi;
-        files[file].lodash = lodash;
-        files[file].healthCenterPath = metalsmith_dynamic_pages.healthCenterPath;
-        files[file].advertisementPath = metalsmith_dynamic_pages.advertisementPath;
-        files[file].slugify = slug;
+      files[file].moment_sv = moment_sv;
+      files[file].moment_fi = moment_fi;
+      files[file].lodash = lodash;
+      files[file].healthCenterPath = metalsmith_dynamic_pages.healthCenterPath;
+      files[file].advertisementPath = metalsmith_dynamic_pages.advertisementPath;
+      files[file].slugify = slug;
     })
 
     done();
@@ -117,7 +116,7 @@ module.exports = new Metalsmith(__dirname)
     limit: 200,
     preprocess: (file) => {
       if (file.url) {
-        return { 
+        return {
           ...file,
           url: file.url.replace(/\.pug/, ".html"),
           title: file.title.replace("Avoimet työpaikat - Työpaikkailmoitus: ", "")
