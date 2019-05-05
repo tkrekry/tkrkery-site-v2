@@ -54,6 +54,12 @@
     "newrelic": "5.5.0",
     "readdirp": "2.2.1",
     "s3-sync-aws": "1.1.1",
-    "slug": "1.0.0"
-  }
+    "slug": "1.0.0",
+    "snyk": "^1.161.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
