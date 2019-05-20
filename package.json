@@ -13,6 +13,9 @@
       "email": "jaakko@suutarla.com"
     }
   ],
+  "scripts": { 
+    "lint": "eslint lib/*.js"
+  },
   "keywords": [
     "tkrekry",
     "static site"
@@ -26,6 +29,7 @@
     "clean-css": "4.2.1",
     "consolidate": "0.15.1",
     "cron": "1.7.1",
+    "extend": "^3.0.2",
     "jade": "1.11.0",
     "jstransformer-pug": "0.3.0",
     "level": "5.0.1",
@@ -36,7 +40,6 @@
     "metalsmith-clean-css": "6.0.0",
     "metalsmith-collections": "0.9.0",
     "metalsmith-excerpts": "1.2.0",
-    "metalsmith-feed": "1.0.0",
     "metalsmith-filenames": "1.0.0",
     "metalsmith-in-place": "4.4.0",
     "metalsmith-layouts": "2.3.1",
@@ -50,7 +53,16 @@
     "moment": "2.24.0",
     "moment-timezone": "0.5.25",
     "readdirp": "3.0.1",
+    "rss": "1.2.2",
     "s3-sync-aws": "1.1.1",
     "slug": "1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-node": "9.0.1",
+    "eslint-plugin-promise": "4.1.1",
+    "eslint-plugin-standard": "4.0.0"
   }
 }
