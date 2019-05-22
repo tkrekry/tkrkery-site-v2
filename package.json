@@ -13,7 +13,7 @@
       "email": "jaakko@suutarla.com"
     }
   ],
-  "scripts": { 
+  "scripts": {
     "lint": "eslint lib/*.js"
   },
   "keywords": [
@@ -29,7 +29,7 @@
     "clean-css": "4.2.1",
     "consolidate": "0.15.1",
     "cron": "1.7.1",
-    "extend": "^3.0.2",
+    "extend": "3.0.2",
     "jade": "1.11.0",
     "jstransformer-pug": "0.3.0",
     "level": "5.0.1",
