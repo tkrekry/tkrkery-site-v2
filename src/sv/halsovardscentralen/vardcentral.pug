@@ -49,10 +49,10 @@ div.listing.no-links
         li(itemscope, itemtype="http://data-vocabulary.org/Organization")
           h3(itemprop="name")= office.name
           ul
-            li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Adress:
+            li(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") Adress: 
               a(href= "http://maps.google.fi/maps?f=q&source=s_q&hl=fi&geocode=&q=" + office.street + "+" + office.postal_code + "+" + office.locality)
                 span(itemprop="streetAddress")= office.street + ", "
                 span(itemprop="postalCode")= office.postal_code + " "
                 span(itemprop="addressLocality")= office.locality
             li Webbplats:
-              a(href= office.web_address, itemprop="url")= " " + office.web_address
+              a(href= office.web_address, itemprop="url")= office.web_address
