@@ -146,7 +146,7 @@ $(document).ready(function() {
     window.onafterprint = afterPrint;
   }();
 
-  // AddThis used asynchronously
+  /* AddThis used asynchronously
   function someButtons() {
     var addthis_config = {
       pubid: 'ra-533aa884077c525f',
@@ -161,5 +161,5 @@ $(document).ready(function() {
     loadAddThis();
     addthis.toolbox('.addthis_toolbox');
   }
-  someButtons();
+  someButtons();*/
 });
