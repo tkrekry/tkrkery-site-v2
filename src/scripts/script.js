@@ -88,65 +88,7 @@ $(document).ready(function() {
     e.stopPropagation();
   });
 
-  // Pop-up opener
-  function popUp(winurl) {
-    window.open(winurl, 'popup', 'width=660,height=550,scrollbars=1');
-  }
-
-  // Google Analytics event tracking for links excluding AddThis
-  var gaLink = function() {
-    var filetypes = /\.doc$|\.odt$|\.rtf$/i;
-    $('a').not('.addthis_toolbox a').on('click', function(event) {
-      var url = '';
-      if ($(this).attr('href').match(/^mailto\:/i)) {
-        url = $(this).attr('href').replace(/^mailto\:/i, "");
-        ga('send', 'event', 'Links', 'Mailto', url);
-      } else if ($(this).attr('href').match(/^tel\:/i)) {
-        url = $(this).attr('href').replace(/^tel\:/i, "");
-        ga('send', 'event', 'Links', 'Tel', url);
-      } else if ($(this).hasClass('popup')) {
-        event.preventDefault();
-        url = $(this).attr('href').replace(/^http\:\/\/(www\.)*/i, "");
-        ga('send', 'event', 'Links', 'Outgoing', url, {
-          'hitCallback': popUp($(this).attr('href'))
-        });
-      } else if (location.host != this.host.replace(/\:80$/i, "") && $(!$(this).hasClass('popup'))) {
-        event.preventDefault();
-        url = $(this).attr('href').replace(/^http\:\/\/(www\.)*/i, "");
-        var self = this;
-        ga('send', 'event', 'Links', 'Outgoing', url, {
-          'hitCallback': function() {
-            window.location.href = $(self).attr('href');
-          }
-        });
-      } else if ($(this).attr('href').match(/.+(\/rss\/).+/)) {
-        url = $(this).attr('href').replace(/^http\:\/\/(www\.)*/i, "");
-        ga('send', 'event', 'Links', 'RSS', url);
-      } else if ($(this).attr('href').match(filetypes)) {
-        var host = location.host.replace(/\./, "\\."),
-          pattern = new RegExp('^(http\:\/\/)*(www\.)*(' + 'tkrekry.fi' + ')*\/', 'i');
-        url = $(this).attr('href').replace(pattern, "");
-        ga('send', 'event', 'Links', 'Downloads', url);
-      }
-    });
-  }();
-
-  // Google Analytics event tracking for printing: http://www.blastam.com/blog/index.php/2013/07/tracking-print-page-action-google-analytics/
-  var gaPrint = function() {
-    var afterPrint = function() {
-      ga('send', 'event', 'Print', 'Intent', document.location.pathname);
-    };
-    if (window.matchMedia) {
-      var mediaQueryList = window.matchMedia('print');
-      mediaQueryList.addListener(function(mql) {
-        if (!mql.matches)
-          afterPrint();
-      });
-    }
-    window.onafterprint = afterPrint;
-  }();
-
-  /* AddThis used asynchronously
+  // AddThis used asynchronously
   function someButtons() {
     var addthis_config = {
       pubid: 'ra-533aa884077c525f',
@@ -161,5 +103,5 @@ $(document).ready(function() {
     loadAddThis();
     addthis.toolbox('.addthis_toolbox');
   }
-  someButtons();*/
+  someButtons();
 });
